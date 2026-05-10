@@ -1,19 +1,33 @@
-# fornace
+# pi-notte
 
-A true-dark [pi coding agent](https://github.com/earendil-works/pi-mono) theme with Homebrew green text and intentional single-channel backgrounds.
+**Notte** — Italian for _night_. A true-dark [pi coding agent](https://github.com/earendil-works/pi-mono) theme where darkness has color and text glows like terminal phosphor.
 
-![fornace theme banner](_tmp/banner.png)
+![pi-notte theme banner](_tmp/banner.png)
 
-## What makes it different
+## The Lore
 
-- **Homebrew green text** (`#00FF00`) — bright, unmistakable
-- **True dark backgrounds** — nearly black, with at most 2 non-zero RGB channels per surface
-- **Warm tool text** — `toolTitle` and `toolOutput` use warm near-white neutrals that work across all tool states
-- **Tinted message text** — user messages get blue-white (`#EEEEFF`), custom messages get lavender (`#F0E6FF`)
+Most dark themes are just gray turned down. Notte treats darkness as a canvas with chromatic intent.
+
+Every background surface uses **at most two RGB channels** — the third is exactly zero. Not "nearly zero" (`#06`), not "close enough" (`#0e`) — exactly `0`. This isn't minimalism; it's discipline. Each surface has a deliberate hue you can feel, like the way moonlight isn't actually white.
+
+The text is **Homebrew green** (`#00FF00`) — the phosphor glow of an old CRT terminal. It's not subtle. It's not supposed to be. This is the color that says "I am writing code" and nothing else.
+
+User messages drift into **blue-white** (`#EEEEFF`), like conversation happening in a room lit by a cold monitor. Custom messages get **lavender** (`#F0E6FF`), a warmer corner of the same space.
+
+The tool surfaces — pending, success, error — each have their own channel-isolated darkness: blue for waiting, green for done, red for broken. You feel the state before you read it.
+
+**Notte** is for people who know that `#000018` and `#000000` are different darknesses.
+
+## Color Philosophy
+
+- **Homebrew green text** (`#00FF00`) — unmistakable, the signature
+- **Single-channel backgrounds** — each surface has at most 2 non-zero RGB channels, never 3. Unsaturated channels are exactly `0`
+- **Warm tool text** — `toolTitle` and `toolOutput` use warm near-white neutrals that work across all three tool states (pending, success, error) since they share one color each
+- **Tinted message text** — user messages drift blue-white (`#EEEEFF`), custom messages get lavender (`#F0E6FF`)
 - **All 51 color slots filled** — zero inheritance from the default theme. Fully self-contained.
 - **Export colors included** — HTML export gets matching deep dark backgrounds
 
-## Color palette
+## Palette
 
 ### Variables
 
@@ -71,20 +85,20 @@ A true-dark [pi coding agent](https://github.com/earendil-works/pi-mono) theme w
 Copy the theme file to your pi themes directory:
 
 ```sh
-cp fornace.json ~/.pi/agent/themes/fornace.json
+cp notte.json ~/.pi/agent/themes/notte.json
 ```
 
 Then activate it in `~/.pi/agent/settings.json`:
 
 ```json
 {
-  "theme": "fornace"
+  "theme": "notte"
 }
 ```
 
 Pi auto-reloads themes on file change — no restart needed.
 
-## Design rules
+## Design Rules
 
 1. **Backgrounds have at most 2 non-zero RGB channels** — unsaturated channels are exactly `0`, not "nearly zero". This creates deliberate color intent.
 2. **Text colors match their background hue** — near-white tints derived from the background's channel ratios (e.g., blue bg `#00001c` → text `#EEEEFF`).

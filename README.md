@@ -113,3 +113,12 @@ Validated against [pi theme schema](https://raw.githubusercontent.com/earendil-w
 ## License
 
 MIT
+
+## From the same author
+
+By [Francesco Frapporti](https://fornace.it) at [Fornace](https://fornace.it).
+
+- **[pi-bench](https://github.com/fornace/pi-bench)** — LLM benchmark toolkit for pi. Probes every available model to find the fastest and cheapest.
+- **[pi-recap](https://github.com/fornace/pi-recap)** — Always-visible session recap panel for pi. Uses pi-bench data to pick the fastest summarization model.
+- **[pi-banana](https://github.com/fornace/pi-banana)** — Generate and edit images inside pi using Google Nano Banana. The banner image above was created with pi-banana.
+- **[pi-alibaba-models](https://github.com/fornace/pi-alibaba-models)** — Complete Alibaba provider for pi: Qwen, DeepSeek, Kimi, GLM, MiniMax with native thinking levels.

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>notte</title>
+<style>
+  :root{
+    --bg:#000000; --panel:#000000;
+    --accent:#7CC7FF; --text:#DEE6F2; --muted:#9AA9BF; --dim:#6B7A93;
+    --border:#6FA8E0; --border-muted:#1E2A3B;
+    --navy:#00001A; --blue-bg:#000012; --green-bg:#001200; --red-bg:#120000;
+    --success:#46D09A; --error:#F2765E; --warning:#F2C463;
+    --heading:#F2D99A; --code:#8FD0FF; --link:#6FD6F2;
+    --str:#E8D28A; --kw:#82C8FF;
+    --added:#4FCF96; --removed:#F2765E;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);
+    font:13px/1.55 "SF Mono",ui-monospace,Menlo,monospace;padding:28px 34px}
+  h1{font-size:14px;color:var(--accent);letter-spacing:.08em;margin-bottom:18px;font-weight:600}
+  .cols{display:flex;gap:26px;align-items:flex-start;flex-wrap:wrap}
+  .term{flex:1 1 480px;min-width:420px;background:var(--panel);border:1px solid var(--border-muted);border-radius:6px;overflow:hidden}
+  .tbar{display:flex;justify-content:space-between;padding:7px 12px;border-bottom:1px solid var(--border-muted)}
+  .tbar .s{color:var(--accent)} .tbar .m{color:var(--dim)}
+  .body{padding:12px}
+  .user{background:var(--navy);color:var(--text);padding:7px 10px;border-left:2px solid #245B80;border-radius:0 4px 4px 0;margin:10px 0}
+  .user .who{color:var(--accent);margin-right:8px}
+  .assist{margin:10px 0;color:var(--text)}
+  .assist .ic{color:var(--code)}
+  .assist h3{color:var(--heading);font-size:13px;margin:8px 0 4px}
+  .tool{border-left:2px solid;border-radius:0 4px 4px 0;padding:8px 10px;margin:8px 0}
+  .tool .t{color:#D6E4F7} .tool .t .n{color:#AECBEE}
+  .tool .o{color:#A6B8CE;white-space:pre-wrap}
+  .tool.blue{background:var(--blue-bg);border-left-color:#245B80}
+  .tool.green{background:var(--green-bg);border-left-color:#1B6545}
+  .tool.red{background:var(--red-bg);border-left-color:#783832}
+  .diff .a{color:var(--added)} .diff .r{color:var(--removed)} .diff .c{color:var(--dim)}
+  .cust{background:#000010;border-left:2px solid var(--accent);padding:7px 10px;border-radius:0 4px 4px 0;margin:8px 0}
+  .cust .l{color:var(--accent)} .cust .b{color:var(--muted)}
+  .foot{border-top:1px solid var(--border);margin-top:14px;padding:7px 2px 0;display:flex;justify-content:space-between;color:var(--dim)}
+  .foot .w{color:var(--accent)}
+  /* swatches */
+  .sw{flex:0 1 300px;min-width:280px}
+  .sw h2{font-size:12px;color:var(--muted);letter-spacing:.06em;margin:0 0 8px;font-weight:600}
+  .row{display:flex;align-items:center;gap:10px;margin:5px 0}
+  .chip{width:34px;height:22px;border-radius:4px;border:1px solid var(--border-muted);flex:0 0 auto}
+  .row code{color:var(--text);font-size:12px}
+  .row span{color:var(--dim);font-size:11px}
+  .grp{margin-bottom:16px}
+  .note{color:var(--dim);font-size:11px;margin-top:22px;max-width:760px}
+</style>
+</head>
+<body>
+<h1>notte</h1>
+<div class="cols">
+  <div class="term">
+    <div class="tbar"><span class="s">pam-app-2024</span><span class="m">todo:2 · ctx 21%</span></div>
+    <div class="body">
+      <div class="user"><span class="who">›</span>fix the coupon expiry edge case</div>
+      <div class="assist">Reading the coupon reducer and its tests. The bug is in
+        <span class="ic">applyDiscount()</span> when
+        <span class="ic">expiresAt</span> falls on the last day of the month.</div>
+      <div class="tool blue">
+        <div class="t"><span class="n">bash</span> · running</div>
+        <div class="o">yarn jest src/reducers/coupons -t expiry</div>
+      </div>
+      <div class="tool blue">
+        <div class="t"><span class="n">read</span> · src/reducers/coupons.js</div>
+        <div class="o">142 lines · L98-L124</div>
+      </div>
+      <div class="tool green">
+        <div class="t"><span class="n">edit</span> · src/reducers/coupons.js</div>
+        <div class="o diff"><span class="c">  if (coupon.expiresAt)</span>
+<span class="r">-    return now &lt; coupon.expiresAt;</span>
+<span class="a">+    return now &lt;= endOfDay(coupon.expiresAt);</span></div>
+      </div>
+      <div class="tool green">
+        <div class="t"><span class="n">bash</span> · exit 0</div>
+        <div class="o">Tests: 14 passed · 421 ms</div>
+      </div>
+      <div class="tool red">
+        <div class="t"><span class="n">bash</span> · exit 1</div>
+        <div class="o">TypeError: Cannot read properties of undefined (reading 'points')</div>
+      </div>
+      <div class="cust"><span class="l">reviewer</span> <span class="b">mutation coverage unchanged on the new branch</span></div>
+      <div class="foot"><span class="w">● Working</span><span>fornace-max · notte</span></div>
+    </div>
+  </div>
+  <div class="sw">
+    <div class="grp"><h2>accent + greys</h2>
+      <div class="row"><div class="chip" style="background:#7CC7FF"></div><code>#7CC7FF</code><span>accent, borders, labels</span></div>
+      <div class="row"><div class="chip" style="background:#DEE6F2"></div><code>#DEE6F2</code><span>text</span></div>
+      <div class="row"><div class="chip" style="background:#9AA9BF"></div><code>#9AA9BF</code><span>secondary text</span></div>
+      <div class="row"><div class="chip" style="background:#6B7A93"></div><code>#6B7A93</code><span>dim / footers</span></div>
+      <div class="row"><div class="chip" style="background:#1E2A3B"></div><code>#1E2A3B</code><span>borders muted</span></div>
+    </div>
+    <div class="grp"><h2>tool backgrounds</h2>
+      <div class="row"><div class="chip" style="background:#000012"></div><code>#000012</code><span>running</span></div>
+      <div class="row"><div class="chip" style="background:#001200"></div><code>#001200</code><span>success</span></div>
+      <div class="row"><div class="chip" style="background:#120000"></div><code>#120000</code><span>error</span></div>
+      <div class="row"><div class="chip" style="background:#00001A"></div><code>#00001A</code><span>user message</span></div>
+    </div>
+    <div class="grp"><h2>signals + syntax</h2>
+      <div class="row"><div class="chip" style="background:#46D09A"></div><code>#46D09A</code><span>success</span></div>
+      <div class="row"><div class="chip" style="background:#F2765E"></div><code>#F2765E</code><span>error</span></div>
+      <div class="row"><div class="chip" style="background:#F2C463"></div><code>#F2C463</code><span>warning / functions</span></div>
+      <div class="row"><div class="chip" style="background:#8FD0FF"></div><code>#8FD0FF</code><span>inline code</span></div>
+      <div class="row"><div class="chip" style="background:#6FD6F2"></div><code>#6FD6F2</code><span>links</span></div>
+      <div class="row"><div class="chip" style="background:#E8D28A"></div><code>#E8D28A</code><span>strings / headings</span></div>
+    </div>
+  </div>
+</div>
+<p class="note">Palette proposal. Sample conversation and tool results are illustrative.</p>
+</body>
+</html>

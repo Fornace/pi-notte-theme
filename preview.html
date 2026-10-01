@@ -23,7 +23,7 @@
   .tbar{display:flex;justify-content:space-between;padding:7px 12px;border-bottom:1px solid var(--border-muted)}
   .tbar .s{color:var(--accent)} .tbar .m{color:var(--dim)}
   .body{padding:12px}
-  .user{background:var(--navy);color:var(--text);padding:7px 10px;border-left:2px solid #245B80;border-radius:0 4px 4px 0;margin:10px 0}
+  .user{background:#00FF00;color:#003B00;padding:7px 10px;border-left:2px solid #00521A;border-radius:0 4px 4px 0;margin:10px 0}
   .user .who{color:var(--accent);margin-right:8px}
   .assist{margin:10px 0;color:var(--text)}
   .assist .ic{color:var(--code)}
@@ -35,21 +35,22 @@
   .tool.green{background:var(--green-bg);border-left-color:#1B6545}
   .tool.red{background:var(--red-bg);border-left-color:#783832}
   .diff .a{color:var(--added)} .diff .r{color:var(--removed)} .diff .c{color:var(--dim)}
-  .cust{background:#000010;border-left:2px solid var(--accent);padding:7px 10px;border-radius:0 4px 4px 0;margin:8px 0}
-  .cust .l{color:var(--accent)} .cust .b{color:var(--muted)}
+  .cust{background:#10001C;border-left:2px solid #5A3E8A;padding:7px 10px;border-radius:0 4px 4px 0;margin:8px 0}
+  .cust .l{color:#9575cd} .cust .b{color:#C9B8E8}
   .foot{border-top:1px solid var(--border);margin-top:14px;padding:7px 2px 0;display:flex;justify-content:space-between;color:var(--dim)}
   .foot .w{color:var(--accent)}
   /* swatches */
-  .sw{flex:0 1 300px;min-width:280px}
-  .sw h2{font-size:12px;color:var(--muted);letter-spacing:.06em;margin:0 0 8px;font-weight:600}
   .row{display:flex;align-items:center;gap:10px;margin:5px 0}
+  .sw{flex:0 1 300px;min-width:280px}
   .chip{width:34px;height:22px;border-radius:4px;border:1px solid var(--border-muted);flex:0 0 auto}
+  .skill{background:#141000;border-left:2px solid #9C7A1E;padding:7px 10px;border-radius:0 4px 4px 0;margin:8px 0}
+  .skill .l{color:#C9A83D}
   .row code{color:var(--text);font-size:12px}
   .row span{color:var(--dim);font-size:11px}
+  .sw h2{font-size:12px;color:var(--muted);letter-spacing:.06em;margin:0 0 8px;font-weight:600}
   .grp{margin-bottom:16px}
   .note{color:var(--dim);font-size:11px;margin-top:22px;max-width:760px}
 </style>
-</head>
 <body>
 <h1>notte</h1>
 <div class="cols">
@@ -83,6 +84,7 @@
         <div class="o">TypeError: Cannot read properties of undefined (reading 'points')</div>
       </div>
       <div class="cust"><span class="l">reviewer</span> <span class="b">mutation coverage unchanged on the new branch</span></div>
+      <div class="skill"><span class="l">[skill]</span> <span class="b" style="color:#C9B8E8">scrapling-official</span> fetch, verify, unpack</div>
       <div class="foot"><span class="w">● Working</span><span>fornace-max · notte</span></div>
     </div>
   </div>
